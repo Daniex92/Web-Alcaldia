@@ -1,0 +1,290 @@
+/* ORGANIZACIÓN: Variables CSS para fácil mantenimiento de colores y espaciado */
+:root {
+  --color-principal: #C08457;   /* Terracota cálido */
+  --color-secundario: #8C4A2F;  /* Marrón artesanal para acentos */
+  --color-fondo: #FAF6F3;       /* Beige muy claro, cálido y limpio */
+  --color-navbar-bg: #E3C9B1;   /* Arena suave */
+  --color-navbar-hover: #D6A77A;/* Terracota claro para resaltar */
+  --color-texto-claro: #FFFFFF; /* Blanco puro */
+  --color-footer-bg: #EBD8C8;   /* Beige rosado */
+  --color-texto-footer: #7A5E4B;/* Marrón tostado */
+    --espaciado-lg: 40px;
+    --espaciado-md: 20px;
+}
+
+/* Estilos básicos reestructurados */
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-principal);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-principal);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--color-secundario);
+    text-decoration: underline;
+}
+
+.container {
+    padding: var(--espaciado-md);
+}
+
+/* --- Barra de navegación --- */
+.navbar {
+    background-color: var(--color-navbar-bg);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* Fijar la barra de navegación en la parte superior */
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+.nav-link {
+    color: var(--color-principal) !important; /* !important para sobrescribir Bootstrap */
+    font-weight: bold;
+    padding: 8px 15px !important;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: var(--color-navbar-hover);
+    border-radius: 5px;
+    color: var(--color-texto-claro) !important;
+}
+
+/* --- Encabezado - OPTIMIZADO --- */
+.main-header {
+    /* * OPTIMIZACIÓN: Uso eficiente de la propiedad 'background' para el gradiente y la imagen.
+     * 'background-position: center center;' asegura que el punto focal de la imagen
+     * se mantenga visible en diferentes tamaños de pantalla.
+     */
+    background: 
+        linear-gradient(to bottom,rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+        url(../Fotos/Portadas/Portada\ navidad1.jpg); 
+        
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    text-align: center;
+    padding: 150px 0; /* Ajuste para hacerlo responsive */
+    color: var(--color-texto-claro);
+    position: relative;
+}
+
+.Titulo-header {
+    font-size: 3.5rem; /* responsive font size */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.Titulo-header2 {
+    font-size: 1.8rem;
+    background-color: rgba(255, 72, 0, 0.4);
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+#reloj {
+    color: white;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: normal;
+}
+
+/* --- Títulos de Sección --- */
+.Seccion-div {
+    color: var(--color-secundario);
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: var(--espaciado-lg) 0 var(--espaciado-md);
+}
+
+/* --- Estructura de Tarjetas (Items de Sitio/Restaurante/Hotel) --- */
+.card-item {
+    background-color: var(--color-texto-claro);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: var(--espaciado-md);
+    height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-item img {
+    max-width: 100%;
+    height: 200px; /* Altura fija para la imagen para uniformidad */
+    object-fit: cover; /* Recorta la imagen sin deformarla */
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+.card-item h3 {
+    color: var(--color-secundario);
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.card-item p {
+    flex-grow: 1; /* Permite que el párrafo crezca para llenar el espacio */
+    margin-bottom: var(--espaciado-md);
+}
+
+/* Grupo de enlaces al final de la tarjeta */
+.links-grupo {
+    margin-top: 10px;
+}
+
+.ubicacion, .WhatsApp, .card-item a[href^="mailto"] {
+    display: block; /* Cada enlace en su propia línea en móvil */
+    margin: 5px auto;
+    font-size: 0.95rem;
+    padding: 3px 0;
+}
+
+.ubicacion i, .WhatsApp i, .card-item a[href^="mailto"] i {
+    margin-right: 5px;
+}
+
+/* Botón "Ver más" */
+.mas-info {
+    margin-top: 10px;
+    width: 100%;
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+}
+.mas-info:hover {
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
+}
+
+/* Contenido adicional (Acordeón) */
+.informacion-adicional {
+    margin-top: 15px;
+    padding: 10px;
+    border-top: 1px solid #eee;
+    display: none; /* Oculto por defecto, controlado por JS */
+    text-align: left;
+    font-size: 0.9em;
+    color: #333;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estilo para la línea horizontal que separa las secciones */
+.section-divider {
+    border-top: 3px solid #e0e0e0;
+    margin: var(--espaciado-lg) 0;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-principal);
+    padding-top: var(--espaciado-lg);
+    font-size: 0.9em;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: var(--espaciado-lg); /* Espaciado entre el contenido y el copyright */
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px; /* Asegura que no colapsen en pantallas medianas */
+}
+.footer-section h3 {
+    color: var(--color-principal);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-section ul li a {
+    font-weight: normal;
+    color: var(--color-principal);
+}
+.footer-section ul li a:hover {
+    color: var(--color-secundario);
+}
+
+/* Estilo para la sección de Copyright (Solicitado en el primer turno) */
+.footer-copyright {
+    background-color: var(--color-principal); /* Fondo oscuro para el aviso */
+    color: var(--color-texto-claro);
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.85em;
+    width: 100%;
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+/* --- RESPONSIVIDAD (Media Queries) --- */
+
+/* Tabletas (768px y menos) */
+@media (max-width: 768px) {
+    .Titulo-header {
+        font-size: 2.5rem;
+    }
+    .Titulo-header2 {
+        font-size: 1.4rem;
+    }
+    .main-header {
+        padding: 100px 0;
+    }
+    .Seccion-div {
+        font-size: 1.8rem;
+    }
+    .card-item img {
+        height: 150px; /* Altura más pequeña para móviles */
+    }
+    .links-grupo a {
+        display: block;
+        margin: 5px auto;
+    }
+}
+
+/* Teléfonos (576px y menos) */
+@media (max-width: 576px) {
+    .Titulo-header {
+        font-size: 2rem;
+    }
+    .Titulo-header2 {
+        font-size: 1.2rem;
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-section {
+        min-width: 100%;
+    }
+}
