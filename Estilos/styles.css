@@ -73,7 +73,7 @@ a:hover {
      */
     background: 
         linear-gradient(to bottom,rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
-        url(../Fotos/Portadas/Portada\ navidad1.jpg); 
+        url(./Fotos/Portadas/Portada\ navidad1.jpg); 
         
     background-size: cover;
     background-position: center center;
